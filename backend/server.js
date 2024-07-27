@@ -2,8 +2,11 @@ import products from "./data/products.js";
 // Import the 'express' module to create the server
 import express from "express";
 
+import dotenv from "dotenv";
+dotenv.config();
+
 // / Define the port number the server will listen on
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Initialize the Express application
 const app = express();
