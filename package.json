@@ -1,0 +1,15 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "e-commerce application using MERN stack",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "author": "Kadir Balkaya",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
