@@ -1,8 +1,27 @@
 import { Row, Col } from "react-bootstrap";
-import products from "../products";
+// import products from "../products";
 import Product from "../components/Product";
+import { useEffect, useState } from "react";
 
 function HomeScreen() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("/api/products");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   return (
     <>
       <h1>Latest Products</h1>
