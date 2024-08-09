@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const orderScheme = new mongoose.Schema(
   {
     user: {
-      type: mongoose.Schema.Type.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "User",
     },
@@ -15,7 +15,7 @@ const orderScheme = new mongoose.Schema(
         image: { type: String, required: true },
         price: { type: Number, required: true },
         product: {
-          type: mongoose.Schema.Type.ObjectId,
+          type: mongoose.Schema.Types.ObjectId,
           required: true,
           ref: "Product",
         },
@@ -43,7 +43,7 @@ const orderScheme = new mongoose.Schema(
       default: 0.0,
     },
     taxPrice: {
-      type: number,
+      type: Number,
       required: true,
       default: 0.0,
     },
@@ -79,6 +79,6 @@ const orderScheme = new mongoose.Schema(
   }
 );
 
-const Order = mongoose.Model("Order", orderScheme);
+const Order = mongoose.model("Order", orderScheme);
 
 export default Order;
