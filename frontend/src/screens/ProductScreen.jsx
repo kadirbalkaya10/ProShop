@@ -12,7 +12,7 @@ export default function ProductScreen() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`/api/product/${productId}`);
+        const response = await fetch(`/api/products/${productId}`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
