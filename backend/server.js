@@ -1,8 +1,7 @@
 // Import the 'express' module to create the server
 import express from "express";
 import connectDB from "./config/db.js";
-
-import products from "./data/products.js";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import productRoutes from "./routes/productRoutes.js";
 
 import dotenv from "dotenv";
@@ -22,6 +21,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/products", productRoutes);
+
+app.use(notFound);
+app.use(errorHandler);
 
 // Starting the server and having it listen on the specified port
 app.listen(port, () =>
