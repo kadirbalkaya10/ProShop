@@ -1,7 +1,9 @@
-import products from "./data/products.js";
 // Import the 'express' module to create the server
 import express from "express";
 import connectDB from "./config/db.js";
+
+import products from "./data/products.js";
+import productRoutes from "./routes/productRoutes.js";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -19,16 +21,7 @@ app.get("/", (req, res) => {
   res.send("API is running");
 });
 
-// Setting up a route to get all products
-app.get("/api/products", (req, res) => {
-  res.json(products); // Sending the products data as a JSON response
-});
-
-// Setting up a route to get a single product by its ID
-app.get("/api/product/:id", (req, res) => {
-  const product = products.find((p) => p._id === req.params.id);
-  res.json(product);
-});
+app.use("/api/products", productRoutes);
 
 // Starting the server and having it listen on the specified port
 app.listen(port, () =>
