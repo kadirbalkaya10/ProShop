@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import Ratings from "../components/Ratings";
 import { useGetProductDetailQuery } from "../slices/productApiSlice";
+import Loader from "../components/Loader";
 
 export default function ProductScreen() {
   const { id: productId } = useParams();
@@ -20,7 +21,7 @@ export default function ProductScreen() {
       </Link>
 
       {isLoading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : error ? (
         <div>{error?.data?.message || error.error}</div>
       ) : (
