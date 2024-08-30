@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
   Row,
@@ -10,13 +10,18 @@ import {
   Button,
   Form,
 } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import Ratings from "../components/Ratings";
 import { useGetProductDetailQuery } from "../slices/productApiSlice";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
+import { addToCart } from "../slices/cartSlice.js";
 
 export default function ProductScreen() {
   const { id: productId } = useParams();
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [quantity, setQuantity] = useState(1);
 
@@ -25,6 +30,11 @@ export default function ProductScreen() {
     isLoading,
     error,
   } = useGetProductDetailQuery(productId);
+
+  const addToCartHandler = () => {
+    dispatch(addToCart({ ...product, quantity }));
+    navigate("/cart");
+  };
 
   return (
     <>
@@ -101,7 +111,8 @@ export default function ProductScreen() {
                   <Button
                     className='btn-block'
                     type='button'
-                    disabled={product.countInStock === 0}>
+                    disabled={product.countInStock === 0}
+                    onClick={addToCartHandler}>
                     Add to Cart
                   </Button>
                 </ListGroup.Item>
