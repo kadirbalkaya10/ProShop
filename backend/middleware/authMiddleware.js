@@ -4,7 +4,7 @@ import User from "../models/userModel.js";
 
 // Protect routes
 
-export const protect = asyncHandler(async (req, res, next) => {
+const protect = asyncHandler(async (req, res, next) => {
   let token;
 
   //Read the JSONWEBTOKEN from the cookie
