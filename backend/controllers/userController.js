@@ -186,9 +186,9 @@ const updateUser = asyncHandler(async (req, res) => {
       email: updateUser.email,
       isAdmin: updateUser.isAdmin,
     });
-  }else {
-    res.status(404)
-    throw new Error('User not found')
+  } else {
+    res.status(404);
+    throw new Error("User not found");
   }
 });
 
