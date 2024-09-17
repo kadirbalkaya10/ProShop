@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
-export default function Ratings({ value, text }) {
+export default function Rating({ value, text }) {
   return (
     <div className='rating'>
       <span>
