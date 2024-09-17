@@ -127,7 +127,8 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 // @access Private/admin
 
 const getUsers = asyncHandler(async (req, res) => {
-  res.send("Get users!!!! Admin Only");
+  const users = await User.find({});
+  res.status(200).json(users);
 });
 
 // @desc Get User by ID
