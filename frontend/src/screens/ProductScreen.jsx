@@ -22,6 +22,7 @@ import Message from "../components/Message";
 import Rating from "../components/Ratings";
 import { addToCart } from "../slices/cartSlice.js";
 import { toast } from "react-toastify";
+import Meta from "../components/Meta.jsx";
 
 export default function ProductScreen() {
   const { id: productId } = useParams();
@@ -83,6 +84,7 @@ export default function ProductScreen() {
         </Message>
       ) : (
         <>
+          <Meta title={product.name} />
           <Row>
             <Col md={5}>
               <Image src={product.image} alt={product.name} fluid />
