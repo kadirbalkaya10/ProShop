@@ -8,7 +8,7 @@ ProShop is an educational e-commerce web app built to showcase my full-stack dev
 **Note**: This is a demo using PayPal Sandbox. No real transactions are processed.
 
 
-[![ ]
+![ProShop Screenshot](AppScreenShot.png)
 
 ---
 
