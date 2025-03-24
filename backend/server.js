@@ -29,10 +29,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 
-// Setting up a route for the home page respond with a simple message
-app.get("/", (req, res) => {
-  res.send("API is running");
-});
+// // Setting up a route for the home page respond with a simple message
+// app.get("/", (req, res) => {
+//   res.send("API is running");
+// });
 
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
